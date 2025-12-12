@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maurya Web Seva Empire - Service Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2980, #26d0ce);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-bottom: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0 30px;
+            color: white;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 2.8rem;
+            color: #FFD700;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .intro {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto 30px;
+            max-width: 900px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .intro h2 {
+            color: #1a2980;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-image-container {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .service-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .service-card:hover .service-image {
+            transform: scale(1.05);
+        }
+        
+        .service-header {
+            background: linear-gradient(to right, #1a2980, #26d0ce);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .service-body {
+            padding: 20px;
+            flex-grow: 1;
+        }
+        
+        .service-desc {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            font-size: 1rem;
+        }
+        
+        .service-features {
+            margin-bottom: 20px;
+        }
+        
+        .service-features h4 {
+            color: #1a2980;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .service-features ul {
+            padding-left: 20px;
+            color: #666;
+        }
+        
+        .service-features li {
+            margin-bottom: 5px;
+        }
+        
+        .service-footer {
+            padding: 0 20px 20px;
+            text-align: center;
+        }
+        
+        .open-btn {
+            display: block;
+            background: linear-gradient(to right, #1a2980, #26d0ce);
+            color: white;
+            padding: 14px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .open-btn:hover {
+            background: linear-gradient(to right, #26d0ce, #1a2980);
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: white;
+            padding: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .services-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        
+        .highlight {
+            color: #FFD700;
+            font-weight: bold;
+        }
+        
+        .no-image {
+            height: 220px;
+            background: linear-gradient(to right, #1a2980, #26d0ce);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .no-image-text {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .service-count {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 0 auto 20px;
+            max-width: 900px;
+            text-align: center;
+            font-weight: bold;
+            color: #1a2980;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .search-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 900px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .search-box {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #1a2980;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        
+        .search-btn {
+            background: linear-gradient(to right, #1a2980, #26d0ce);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .search-btn:hover {
+            background: linear-gradient(to right, #26d0ce, #1a2980);
+            transform: scale(1.05);
+        }
+        
+        .category-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+            justify-content: center;
+        }
+        
+        .category-btn {
+            background-color: #f1f1f1;
+            border: 2px solid #ddd;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .category-btn:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .category-btn.active {
+            background: linear-gradient(to right, #1a2980, #26d0ce);
+            color: white;
+            border-color: #1a2980;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-crown logo-icon"></i>
+                <h1>Maurya Web Seva Empire</h1>
+            </div>
+            <p class="tagline">सेवाओं का साम्राज्य - सभी वेब सेवाओं का एक ही पोर्टल</p>
+        </header>
+        
+        <div class="intro">
+            <h2>आपकी सभी वेब सेवाओं का केंद्र</h2>
+            <p>मौर्य वेब सेवा साम्राज्य आपकी सभी डिजिटल सेवाओं तक पहुँच प्रदान करता है। नीचे दी गई सूची से किसी भी सेवा का चयन करें और सीधे उस वेबसाइट पर पहुँचें।</p>
+        </div>
+        
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="search-input" class="search-input" placeholder="सेवा खोजें...">
+                <button type="button" id="search-btn" class="search-btn">
+                    <i class="fas fa-search"></i> खोजें
+                </button>
+            </div>
+            
+            <div class="category-filter" id="category-filter">
+                <button class="category-btn active" data-category="all">सभी सेवाएं</button>
+                <!-- Categories will be added by JavaScript -->
+            </div>
+        </div>
+        
+        <div class="service-count" id="service-count">
+            कुल सेवाएँ: <span id="count">0</span> | दिखाई जा रही हैं: <span id="showing">0</span>
+        </div>
+        
+        <div class="services-container" id="services-list">
+            <!-- Services will be populated by JavaScript -->
+        </div>
+        
+        <footer>
+            <p>© 2025 Maurya Web Seva Empire. सर्वाधिकार सुरक्षित।</p>
+            <p>संपर्क: support@mauryawebempire.com | फोन: +91 7643806356</p>
+        </footer>
+    </div>
+
+    <script>
+        // Service data - Add your services here
+        const services = [
+            {
+                id: 1,
+                name: "मौर्य ई-कॉमर्स",
+                description: "एक पूर्ण विशेषताओं वाला ई-कॉमर्स प्लेटफॉर्म जहाँ आप उत्पाद खरीद और बेच सकते हैं।",
+                features: ["सुरक्षित भुगतान", "उत्पाद प्रबंधन", "ऑर्डर ट्रैकिंग", "ग्राहक समर्थन"],
+                link: "https://maurya-ecommerce.example.com",
+                image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                category: "ई-कॉमर्स"
+            },
+            {
+                id: 2,
+                name: "मौर्य ब्लॉगिंग",
+                description: "सामग्री निर्माण और ब्लॉगिंग के लिए एक उन्नत प्लेटफॉर्म।",
+                features: ["समृद्ध टेक्स्ट एडिटर", "एसईओ अनुकूलन", "विश्लेषण", "सामाजिक साझाकरण"],
+                link: "https://maurya-blogging.example.com",
+                image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80",
+                category: "ब्लॉगिंग"
+            },
+            {
+                id: 3,
+                name: "मौर्य लर्निंग",
+                description: "ऑनलाइन पाठ्यक्रम और शैक्षिक सामग्री के लिए एक शिक्षण पोर्टल।",
+                features: ["वीडियो पाठ", "क्विज़ और परीक्षण", "प्रगति ट्रैकिंग", "प्रमाणपत्र"],
+                link: "https://maurya-learning.example.com",
+                image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                category: "शिक्षा"
+            },
+            {
+                id: 4,
+                name: "मौर्य होस्टिंग",
+                description: "वेबसाइट होस्टिंग और डोमेन पंजीकरण सेवाएँ।",
+                features: ["99.9% अपटाइम", "24/7 समर्थन", "स्केलेबल प्लान", "मुफ्त SSL"],
+                link: "https://maurya-hosting.example.com",
+                image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+                category: "होस्टिंग"
+            },
+            {
+                id: 5,
+                name: "मौर्य फाइनेंस",
+                description: "व्यक्तिगत वित्त प्रबंधन और निवेश सलाहकार सेवाएँ।",
+                features: ["बजट ट्रैकिंग", "निवेश विश्लेषण", "टैक्स प्लानिंग", "वित्तीय रिपोर्ट"],
+                link: "https://maurya-finance.example.com",
+                image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1011&q=80",
+                category: "वित्त"
+            },
+            {
+                id: 6,
+                name: "मौर्य स्वास्थ्य",
+                description: "टेलीमेडिसिन और स्वास्थ्य सेवा प्रबंधन पोर्टल।",
+                features: ["डॉक्टर अपॉइंटमेंट", "मेडिकल रिकॉर्ड", "दवा अनुस्मारक", "स्वास्थ्य सुझाव"],
+                link: "https://maurya-healthcare.example.com",
+                image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                category: "स्वास्थ्य"
+            },
+            {
+                id: 7,
+                name: "मौर्य पर्यटन",
+                description: "होटल बुकिंग, यात्रा योजना और पर्यटन सेवाएँ।",
+                features: ["होटल बुकिंग", "फ्लाइट टिकट", "यात्रा योजनाकार", "स्थानीय गाइड"],
+                link: "https://maurya-tourism.example.com",
+                image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1121&q=80",
+                category: "पर्यटन"
+            },
+            {
+                id: 8,
+                name: "मौर्य नौकरी",
+                description: "नौकरी खोज, भर्ती और कैरियर परामर्श पोर्टल।",
+                features: ["नौकरी सूची", "रिज्यूमे बिल्डर", "कंपनी समीक्षा", "कैरियर सलाह"],
+                link: "https://maurya-jobs.example.com",
+                image: "https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                category: "कैरियर"
+            }
+        ];
+
+        // DOM Elements
+        const servicesContainer = document.getElementById('services-list');
+        const serviceCount = document.getElementById('count');
+        const showingCount = document.getElementById('showing');
+        const searchInput = document.getElementById('search-input');
+        const searchBtn = document.getElementById('search-btn');
+        const categoryFilter = document.getElementById('category-filter');
+        
+        // State variables
+        let currentSearch = '';
+        let currentCategory = 'all';
+        let filteredServices = [...services];
+
+        // Initialize categories
+        function initCategories() {
+            // Get unique categories
+            const categories = ['all', ...new Set(services.map(service => service.category))];
+            
+            // Create category buttons
+            categories.forEach(category => {
+                if (category === 'all') return; // Already exists in HTML
+                
+                const button = document.createElement('button');
+                button.className = 'category-btn';
+                button.textContent = category;
+                button.setAttribute('data-category', category);
+                
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    document.querySelectorAll('.category-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Update current category
+                    currentCategory = this.getAttribute('data-category');
+                    
+                    // Filter services
+                    filterServices();
+                });
+                
+                categoryFilter.appendChild(button);
+            });
+        }
+
+        // Filter services based on search and category
+        function filterServices() {
+            filteredServices = services.filter(service => {
+                // Check search term
+                const searchTerm = currentSearch.toLowerCase();
+                const matchesSearch = searchTerm === '' || 
+                    service.name.toLowerCase().includes(searchTerm) ||
+                    service.description.toLowerCase().includes(searchTerm) ||
+                    service.features.some(feature => feature.toLowerCase().includes(searchTerm)) ||
+                    service.category.toLowerCase().includes(searchTerm);
+                
+                // Check category
+                const matchesCategory = currentCategory === 'all' || service.category === currentCategory;
+                
+                return matchesSearch && matchesCategory;
+            });
+            
+            renderServices();
+        }
+
+        // Function to render services
+        function renderServices() {
+            servicesContainer.innerHTML = '';
+            serviceCount.textContent = services.length;
+            showingCount.textContent = filteredServices.length;
+            
+            if (filteredServices.length === 0) {
+                servicesContainer.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 40px; background-color: white; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <i class="fas fa-search" style="font-size: 3rem; color: #ddd; margin-bottom: 20px;"></i>
+                        <h3 style="color: #666; margin-bottom: 10px;">कोई सेवा नहीं मिली</h3>
+                        <p style="color: #888;">आपकी खोज से मेल खाने वाली कोई सेवा नहीं मिली। कृपया अलग शब्दों से खोजें या अलग श्रेणी चुनें।</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            filteredServices.forEach(service => {
+                const serviceCard = document.createElement('div');
+                serviceCard.className = 'service-card';
+                
+                serviceCard.innerHTML = `
+                    <div class="service-image-container">
+                        ${service.image ? 
+                            `<img src="${service.image}" alt="${service.name}" class="service-image">` : 
+                            `<div class="no-image">
+                                <div class="no-image-text">
+                                    <i class="fas fa-image" style="font-size: 3rem; margin-bottom: 10px;"></i>
+                                    <p>कोई चित्र उपलब्ध नहीं</p>
+                                </div>
+                            </div>`
+                        }
+                    </div>
+                    <div class="service-header">
+                        <h3 class="service-title">${service.name}</h3>
+                    </div>
+                    <div class="service-body">
+                        <p class="service-desc">${service.description}</p>
+                        <div class="service-features">
+                            <h4>मुख्य विशेषताएँ:</h4>
+                            <ul>
+                                ${service.features.map(feature => `<li>${feature}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="service-footer">
+                        <a href="${service.link}" target="_blank" class="open-btn">
+                            सेवा पर जाएं <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                `;
+                
+                servicesContainer.appendChild(serviceCard);
+            });
+        }
+
+        // Search functionality
+        searchBtn.addEventListener('click', function() {
+            currentSearch = searchInput.value.trim();
+            filterServices();
+        });
+
+        searchInput.addEventListener('keyup', function(e) {
+            if (e.key === 'Enter') {
+                currentSearch = searchInput.value.trim();
+                filterServices();
+            }
+        });
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            initCategories();
+            renderServices();
+            
+            // Real-time search
+            searchInput.addEventListener('input', function() {
+                currentSearch = this.value.trim();
+                filterServices();
+            });
+        });
+    </script>
+</body>
+</html>
