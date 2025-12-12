@@ -1,31 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-    
-    <!-- Main Index Page -->
-    <url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!--  created with Free Online Sitemap Generator www.xml-sitemaps.com  -->
+        <url>
         <loc>https://priyanshumorya71-bot.github.io/Maurya-web-seva-empire/</loc>
-        <lastmod>2024-12-01</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>1.0</priority>
-    </url>
-    
-    <!-- Services Page -->
-    <url>
-        <loc>https://priyanshumorya71-bot.github.io/Maurya-web-seva-empire/index.html</loc>
-        <lastmod>2024-12-01</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    
-    <!-- All Services -->
-    <url>
-        <loc>https://priyanshumorya71-bot.github.io/Maurya-web-seva-empire/#services</loc>
-        <lastmod>2024-12-01</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
+                <lastmod>2025-12-12T04:33:00+00:00</lastmod>
+        </url>
 </urlset>
