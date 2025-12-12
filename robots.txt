@@ -1,0 +1,54 @@
+# robots.txt for Maurya Web Seva Empire
+# Created: 2023-12-01
+# Last Updated: 2023-12-01
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /cgi-bin/
+
+# Sitemap location - यहाँ अपना डोमेन डालें
+Sitemap: https://mauryawebempire.com/sitemap.xml
+Sitemap: https://mauryawebempire.com/sitemap-services.xml
+
+# Crawl delay
+Crawl-delay: 2
+
+# Allow all robots for main pages
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+User-agent: Slurp
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+# Block specific bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Host - अपना डोमेन डालें
+Host: https://mauryawebempire.com
+
+# Clean params
+Clean-param: ref /search/
+Clean-param: session_id /products/
+
+# Additional instructions
+Request-rate: 1/10
+Visit-time: 0600-1800
