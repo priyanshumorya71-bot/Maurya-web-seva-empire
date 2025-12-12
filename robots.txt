@@ -10,7 +10,7 @@ Disallow: /tmp/
 Disallow: /cgi-bin/
 
 # Sitemap location - यहाँ अपना डोमेन डालें
-Sitemap: https://mauryawebempire.com/sitemap.xml
+Sitemap: https://priyanshumorya71-bot.github.io/Maurya-web-seva-empire/sitemap.xml
 Sitemap: https://mauryawebempire.com/sitemap-services.xml
 
 # Crawl delay
