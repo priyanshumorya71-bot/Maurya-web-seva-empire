@@ -43,7 +43,7 @@ User-agent: SemrushBot
 Disallow: /
 
 # Host - अपना डोमेन डालें
-Host: https://mauryawebempire.com
+Host: https://priyanshumorya71-bot.github.io/Maurya-web-seva-empire/
 
 # Clean params
 Clean-param: ref /search/
